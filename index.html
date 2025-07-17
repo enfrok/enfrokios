@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KernalOS Neqoria 1.5</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Top Bar -->
+  <div id="top-bar">
+    <div id="apple-logo" onclick="toggleAppleMenu()"></div>
+    <div id="menu-bar">
+      <span>Finder</span>
+      <span>File</span>
+      <span>Edit</span>
+      <span>View</span>
+      <span>Go</span>
+      <span>Window</span>
+      <span>Help</span>
+    </div>
+    <div id="system-icons">
+      <span id="clock"></span>
+    </div>
+  </div>
+
+  <!-- Apple Dropdown -->
+  <div id="apple-menu" class="hidden">
+    <div class="menu-item" onclick="showAbout()">About This OS</div>
+  </div>
+
+  <!-- About Modal -->
+  <div id="about-modal" class="hidden modal">
+    <div class="modal-content">
+      <h2>KernalOS Neqoria 1.5</h2>
+      <p>Codename: San Fransicso — Titlew Build</p>
+      <p>This OS is a lightweight macOS-style environment for the web, built for elegance, simplicity, and interactivity.</p>
+      <p>Powered by HTML, CSS, and JavaScript.</p>
+      <button onclick="closeAbout()">Close</button>
+    </div>
+  </div>
+
+  <!-- Desktop -->
+  <div id="desktop">
+    <!-- Optional file icons or widgets -->
+  </div>
+
+  <!-- Dock -->
+  <div id="dock">
+    <img src="icons/finder.png" title="Finder" onclick="launchApp('finder')">
+    <img src="icons/safari.png" title="Safari" onclick="launchApp('safari')">
+    <img src="icons/calculator.png" title="Calculator" onclick="launchApp('calculator')">
+    <img src="icons/settings.png" title="Settings" onclick="launchApp('settings')">
+  </div>
+
+  <!-- App Windows -->
+  <div id="app-container">
+    <!-- Safari App -->
+    <div id="safari-app" class="app-window hidden">
+      <div class="window-header">Safari <button onclick="closeApp('safari')">×</button></div>
+      <iframe src="https://example.com" style="width: 100%; height: 90%; border: none;"></iframe>
+    </div>
+
+    <!-- Calculator App -->
+    <div id="calculator-app" class="app-window hidden">
+      <div class="window-header">Calculator <button onclick="closeApp('calculator')">×</button></div>
+      <div id="calculator-display">0</div>
+      <div id="calculator-buttons">
+        <button onclick="calcPress('C')">C</button>
+        <button onclick="calcPress('/')">÷</button>
+        <button onclick="calcPress('*')">×</button>
+        <button onclick="calcPress('-')">−</button>
+        <button onclick="calcPress('7')">7</button>
+        <button onclick="calcPress('8')">8</button>
+        <button onclick="calcPress('9')">9</button>
+        <button onclick="calcPress('+')">+</button>
+        <button onclick="calcPress('4')">4</button>
+        <button onclick="calcPress('5')">5</button>
+        <button onclick="calcPress('6')">6</button>
+        <button onclick="calcPress('=')">=</button>
+        <button onclick="calcPress('1')">1</button>
+        <button onclick="calcPress('2')">2</button>
+        <button onclick="calcPress('3')">3</button>
+        <button onclick="calcPress('0')" class="wide">0</button>
+        <button onclick="calcPress('.')">.</button>
+      </div>
+    </div>
+
+    <!-- Settings App -->
+    <div id="settings-app" class="app-window hidden">
+      <div class="window-header">System Settings <button onclick="closeApp('settings')">×</button></div>
+      <div class="settings-content">
+        <h3>Appearance</h3>
+        <button onclick="toggleTheme('light')">Light Mode</button>
+        <button onclick="toggleTheme('dark')">Dark Mode</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
